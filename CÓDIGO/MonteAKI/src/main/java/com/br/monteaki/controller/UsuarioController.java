@@ -6,6 +6,27 @@ import com.br.monteaki.model.Usuario;
 import java.sql.*;
 
 public class UsuarioController {
+    
+    public Usuario verificarCadastro(String email, String senha) throws SQLException{
+        String sql = "SELECT * FROM tblUsuario WHERE email = ? AND senha = ?";
+        try (Connection con = Conexao.getConexao(); PreparedStatement stmt = con.prepareStatement(sql)) {
+         stmt.setString(1, email);
+         stmt.setString(2, senha);
+         ResultSet rs = stmt.executeQuery();
+
+         if (rs.next()) {
+             Usuario usuario = new Usuario();
+             usuario.setId(rs.getLong("id"));
+             usuario.setNome(rs.getString("nome"));
+             usuario.setEmail(rs.getString("email"));
+             usuario.setSenha(rs.getString("senha"));
+             return usuario; // Retorna o objeto Usuario preenchido
+         } else {
+             return null; // Retorna null se não encontrar o usuário
+         }
+     }
+    }
+        
 
  // Método para cadastrar um usuário usando um objeto Usuario
  public void cadastrar(Usuario usuario) throws SQLException {
@@ -58,6 +79,15 @@ public class UsuarioController {
          } else {
              return null; // Retorna null se não encontrar o email
          }
+     }
+ }
+ 
+ public boolean teste(int numero){
+     if(numero == 0){
+         return true;
+     }
+     else{
+         return false;
      }
  }
 
