@@ -6,6 +6,7 @@ package com.br.monteaki.model.view;
 
 import com.br.monteaki.controller.UsuarioController;
 import com.br.monteaki.model.Usuario;
+import java.awt.Color;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,6 +22,7 @@ public class TelaCadastro extends javax.swing.JFrame {
      */
     public TelaCadastro() {
         initComponents();
+        getContentPane().setBackground(Color.WHITE);
     }
 
     /**
@@ -32,34 +34,32 @@ public class TelaCadastro extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel8 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         txtNome = new javax.swing.JTextField();
         txtEmail = new javax.swing.JTextField();
         txtSenha = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         txtMensagem = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(730, 347));
-        setMinimumSize(new java.awt.Dimension(730, 347));
-        setPreferredSize(new java.awt.Dimension(730, 347));
+        setBackground(new java.awt.Color(255, 255, 255));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setMaximumSize(new java.awt.Dimension(800, 480));
+        setMinimumSize(new java.awt.Dimension(800, 480));
+        setResizable(false);
         getContentPane().setLayout(null);
-
-        jLabel8.setText("Copyright © 2025 MonteAki Company S.L. Todos os direitos reservados.");
-        getContentPane().add(jLabel8);
-        jLabel8.setBounds(20, 320, 380, 16);
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("CADASTRO");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(534, 30, 128, 32);
+        jLabel5.setBounds(80, 50, 128, 32);
 
         txtNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,7 +67,7 @@ public class TelaCadastro extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtNome);
-        txtNome.setBounds(470, 100, 200, 22);
+        txtNome.setBounds(20, 120, 270, 30);
 
         txtEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -75,7 +75,7 @@ public class TelaCadastro extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtEmail);
-        txtEmail.setBounds(470, 160, 200, 22);
+        txtEmail.setBounds(20, 180, 270, 30);
 
         txtSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -83,9 +83,11 @@ public class TelaCadastro extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtSenha);
-        txtSenha.setBounds(470, 220, 200, 22);
+        txtSenha.setBounds(20, 240, 270, 30);
 
-        jButton1.setBackground(new java.awt.Color(0, 255, 255));
+        jButton1.setBackground(new java.awt.Color(106, 13, 173));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Cadastrar");
         jButton1.setActionCommand("");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -94,29 +96,31 @@ public class TelaCadastro extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(520, 290, 110, 30);
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("MonteAKI");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(152, 37, 116, 32);
+        jButton1.setBounds(80, 320, 140, 40);
 
         jLabel1.setText("Nome");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(470, 80, 33, 16);
+        jLabel1.setBounds(20, 100, 200, 16);
 
         jLabel3.setText("Email");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(470, 140, 29, 16);
+        jLabel3.setBounds(20, 160, 200, 16);
 
         jLabel4.setText("Senha");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(470, 200, 32, 16);
+        jLabel4.setBounds(20, 220, 200, 16);
         getContentPane().add(txtMensagem);
-        txtMensagem.setBounds(110, 210, 290, 80);
+        txtMensagem.setBounds(0, 380, 290, 70);
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(110, 210, 250, 60);
+        jLabel6.setBounds(0, 380, 250, 70);
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Logo_do_Kaique 1.png"))); // NOI18N
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(360, 70, 370, 240);
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Logo_Nome 1.png"))); // NOI18N
+        getContentPane().add(jLabel9);
+        jLabel9.setBounds(340, 250, 460, 90);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -146,27 +150,38 @@ public class TelaCadastro extends javax.swing.JFrame {
         usuario.setSenha(senha);
 
         try {
-
             if (nome.isEmpty() || email.isEmpty() || senha.isEmpty()) {
                 txtMensagem.setText("Preencha os campos!");
             } else if (nome.isBlank() || email.isBlank() || senha.isBlank()) {
+                // Nota: isEmpty() já cobre isBlank() para a maioria dos casos práticos
+                // onde campos não devem ser apenas espaços. Mas manter ambos não prejudica.
                 txtMensagem.setText("Campos em branco. Preencha por favor!");
             } else {
                 UsuarioController usuarioController = new UsuarioController();
+                // Assumindo que 'usuario' é um objeto Usuario já criado e populado
+                // com nome, email, senha antes deste bloco try.
+                // Ex:
+                // Usuario usuario = new Usuario();
+                // usuario.setNome(nome);
+                // usuario.setEmail(email);
+                // usuario.setSenha(senha);
 
-                if (usuarioController.verificarCadastro(email, senha) != null) {
-                    usuarioController.cadastrar(usuario);
+                // A condição correta: cadastrar se o usuário NÃO for encontrado
+                if (usuarioController.login(email, senha) == null) {
+                    // Usuário NÃO existe, então pode cadastrar
+                    usuarioController.cadastrar(usuario); // Certifique-se que 'usuario' está populado corretamente
+                    txtMensagem.setText("Usuário cadastrado com sucesso!"); // Feedback positivo
 
                     //Envia ele para a tela de Login
                     TelaLogin login = new TelaLogin();
                     login.setVisible(true);
-                    this.dispose();
+                    this.dispose(); // Fecha a tela de cadastro
+                } else {
+                    // Usuário JÁ existe com esse email e senha (ou apenas email, dependendo da sua lógica em verificarCadastro)
+                    txtMensagem.setText("Usuário já existe ou dados inválidos!");
                 }
-                else {
-                    txtMensagem.setText("Usuario ja existe!");
-                }
-
             }
+
         } catch (SQLException ex) {
             Logger.getLogger(TelaCadastro.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -211,12 +226,12 @@ public class TelaCadastro extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JLabel txtMensagem;
     private javax.swing.JTextField txtNome;
