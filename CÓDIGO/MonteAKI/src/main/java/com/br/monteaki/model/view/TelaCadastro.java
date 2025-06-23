@@ -8,6 +8,7 @@ import com.br.monteaki.controller.UsuarioController;
 import com.br.monteaki.model.Usuario;
 import java.awt.Color;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -34,18 +35,30 @@ public class TelaCadastro extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
         jLabel5 = new javax.swing.JLabel();
-        txtNome = new javax.swing.JTextField();
+        txtNomeCompleto = new javax.swing.JTextField();
         txtEmail = new javax.swing.JTextField();
-        txtSenha = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         txtMensagem = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        lblMensagem = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        txtSenha = new javax.swing.JPasswordField();
+        jLabel2 = new javax.swing.JLabel();
+        txtCargo = new javax.swing.JComboBox<>();
+        chkStatus = new javax.swing.JCheckBox();
+
+        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(jList1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -59,15 +72,15 @@ public class TelaCadastro extends javax.swing.JFrame {
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("CADASTRO");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(80, 50, 128, 32);
+        jLabel5.setBounds(80, 0, 128, 32);
 
-        txtNome.addActionListener(new java.awt.event.ActionListener() {
+        txtNomeCompleto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNomeActionPerformed(evt);
+                txtNomeCompletoActionPerformed(evt);
             }
         });
-        getContentPane().add(txtNome);
-        txtNome.setBounds(20, 120, 270, 30);
+        getContentPane().add(txtNomeCompleto);
+        txtNomeCompleto.setBounds(20, 70, 270, 30);
 
         txtEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -75,15 +88,7 @@ public class TelaCadastro extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtEmail);
-        txtEmail.setBounds(20, 180, 270, 30);
-
-        txtSenha.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSenhaActionPerformed(evt);
-            }
-        });
-        getContentPane().add(txtSenha);
-        txtSenha.setBounds(20, 240, 270, 30);
+        txtEmail.setBounds(20, 130, 270, 30);
 
         jButton1.setBackground(new java.awt.Color(106, 13, 173));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -96,23 +101,23 @@ public class TelaCadastro extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(80, 320, 140, 40);
+        jButton1.setBounds(30, 380, 140, 40);
 
-        jLabel1.setText("Nome");
+        jLabel1.setText("Nome Completo");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(20, 100, 200, 16);
+        jLabel1.setBounds(20, 50, 200, 16);
 
         jLabel3.setText("Email");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(20, 160, 200, 16);
+        jLabel3.setBounds(20, 110, 200, 16);
 
         jLabel4.setText("Senha");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(20, 220, 200, 16);
+        jLabel4.setBounds(20, 170, 200, 16);
         getContentPane().add(txtMensagem);
-        txtMensagem.setBounds(0, 380, 290, 70);
-        getContentPane().add(jLabel6);
-        jLabel6.setBounds(0, 380, 250, 70);
+        txtMensagem.setBounds(460, 380, 290, 70);
+        getContentPane().add(lblMensagem);
+        lblMensagem.setBounds(460, 320, 250, 70);
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Logo_do_Kaique 1.png"))); // NOI18N
         getContentPane().add(jLabel7);
@@ -122,70 +127,117 @@ public class TelaCadastro extends javax.swing.JFrame {
         getContentPane().add(jLabel9);
         jLabel9.setBounds(340, 250, 460, 90);
 
+        txtSenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSenhaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtSenha);
+        txtSenha.setBounds(20, 200, 270, 30);
+
+        jLabel2.setText("Cargo");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(20, 240, 37, 16);
+
+        txtCargo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Usuario" }));
+        getContentPane().add(txtCargo);
+        txtCargo.setBounds(20, 260, 150, 30);
+
+        chkStatus.setText("Status Funcionario");
+        chkStatus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkStatusActionPerformed(evt);
+            }
+        });
+        getContentPane().add(chkStatus);
+        chkStatus.setBounds(20, 310, 140, 20);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
+    private void txtNomeCompletoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeCompletoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNomeActionPerformed
+    }//GEN-LAST:event_txtNomeCompletoActionPerformed
 
     private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEmailActionPerformed
 
-    private void txtSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSenhaActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // Instanciar o controlador de usuários
+        UsuarioController usuarioController = new UsuarioController();
 
-        //Cadastro de Usuario
-        String nome = txtNome.getText();
-        String email = txtEmail.getText();
-        String senha = txtSenha.getText();
+        // Obter os valores dos campos de texto
+        String nomeCompleto = txtNomeCompleto.getText().trim();
+        String email = txtEmail.getText().trim();
+        String senha = txtSenha.getText().trim();
+        boolean statusUsuario = chkStatus.isSelected(); // Checkbox para indicar se o funcionário está ativo
 
-        Usuario usuario = new Usuario();
-        usuario.setNome(nome);
-        usuario.setEmail(email);
-        usuario.setSenha(senha);
+        // Obter o cargo selecionado no JComboBox
+        String cargo = txtCargo.getSelectedItem().toString();
+
+        // Definir a data de ingresso como a data atual do sistema
+        LocalDate dataIngresso = LocalDate.now();
+
+        // Validar os campos obrigatórios
+        if (nomeCompleto.isEmpty() || cargo.isEmpty() || email.isEmpty() || senha.isEmpty()) {
+            lblMensagem.setForeground(Color.RED);
+            lblMensagem.setText("Preencha todos os campos obrigatórios!");
+            return;
+        }
+
+        // Validar o formato do e-mail
+        if (!email.matches("^[\\w._%+-]+@[\\w.-]+\\.[a-zA-Z]{2,6}$")) {
+            lblMensagem.setForeground(Color.RED); // Use lblMensagem para exibir a mensagem
+            lblMensagem.setText("Formato de e-mail inválido!");
+            return; // Interrompe o processo de cadastro
+        }
 
         try {
-            if (nome.isEmpty() || email.isEmpty() || senha.isEmpty()) {
-                txtMensagem.setText("Preencha os campos!");
-            } else if (nome.isBlank() || email.isBlank() || senha.isBlank()) {
-                // Nota: isEmpty() já cobre isBlank() para a maioria dos casos práticos
-                // onde campos não devem ser apenas espaços. Mas manter ambos não prejudica.
-                txtMensagem.setText("Campos em branco. Preencha por favor!");
+            // Verificar se o e-mail já existe no banco de dados
+            if (usuarioController.buscarPorEmail(email) != null) {
+                lblMensagem.setForeground(Color.RED);
+                lblMensagem.setText("E-mail já cadastrado! Tente outro.");
+                return; // Interrompe o processo de cadastro
+            }
+
+            // Criar um objeto Usuario e preencher os dados
+            Usuario usuario = new Usuario();
+            usuario.setNomeCompleto(nomeCompleto);
+            usuario.setCargo(cargo);
+            usuario.setEmail(email);
+            usuario.setSenha(senha); // Lembre-se de hashear a senha em produção!
+            usuario.setStatusUsuario(statusUsuario);
+            usuario.setDataIngresso(dataIngresso);
+
+            // Tentar cadastrar o usuário
+            boolean sucesso = usuarioController.cadastrar(usuario);
+
+            if (sucesso) {
+                lblMensagem.setForeground(Color.GREEN);
+                lblMensagem.setText("Usuário cadastrado com sucesso!");
+
+                //Envia ele para a tela de Login
+                TelaLogin login = new TelaLogin();
+                login.setVisible(true);
+                this.dispose();
             } else {
-                UsuarioController usuarioController = new UsuarioController();
-                // Assumindo que 'usuario' é um objeto Usuario já criado e populado
-                // com nome, email, senha antes deste bloco try.
-                // Ex:
-                // Usuario usuario = new Usuario();
-                // usuario.setNome(nome);
-                // usuario.setEmail(email);
-                // usuario.setSenha(senha);
-
-                // A condição correta: cadastrar se o usuário NÃO for encontrado
-                if (usuarioController.login(email, senha) == null) {
-                    // Usuário NÃO existe, então pode cadastrar
-                    usuarioController.cadastrar(usuario); // Certifique-se que 'usuario' está populado corretamente
-                    txtMensagem.setText("Usuário cadastrado com sucesso!"); // Feedback positivo
-
-                    //Envia ele para a tela de Login
-                    TelaLogin login = new TelaLogin();
-                    login.setVisible(true);
-                    this.dispose(); // Fecha a tela de cadastro
-                } else {
-                    // Usuário JÁ existe com esse email e senha (ou apenas email, dependendo da sua lógica em verificarCadastro)
-                    txtMensagem.setText("Usuário já existe ou dados inválidos!");
-                }
+                lblMensagem.setForeground(Color.RED);
+                lblMensagem.setText("Erro ao cadastrar o usuário.");
             }
 
         } catch (SQLException ex) {
             Logger.getLogger(TelaCadastro.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txtSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSenhaActionPerformed
+
+    private void chkStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkStatusActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_chkStatusActionPerformed
 
     /**
      * @param args the command line arguments
@@ -224,17 +276,22 @@ public class TelaCadastro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox chkStatus;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JList<String> jList1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblMensagem;
+    private javax.swing.JComboBox<String> txtCargo;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JLabel txtMensagem;
-    private javax.swing.JTextField txtNome;
-    private javax.swing.JTextField txtSenha;
+    private javax.swing.JTextField txtNomeCompleto;
+    private javax.swing.JPasswordField txtSenha;
     // End of variables declaration//GEN-END:variables
 }

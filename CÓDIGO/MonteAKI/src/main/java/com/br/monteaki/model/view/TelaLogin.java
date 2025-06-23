@@ -6,6 +6,7 @@ package com.br.monteaki.model.view;
 
 import com.br.monteaki.controller.UsuarioController;
 import com.br.monteaki.model.Usuario;
+import com.br.monteaki.model.view.TelaInicial;
 import java.awt.Color;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -22,7 +23,7 @@ public class TelaLogin extends javax.swing.JFrame {
      */
     public TelaLogin() {
         initComponents();
-         getContentPane().setBackground(Color.WHITE);
+        getContentPane().setBackground(Color.WHITE);
     }
 
     /**
@@ -36,13 +37,13 @@ public class TelaLogin extends javax.swing.JFrame {
 
         jLabel5 = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
-        txtSenha = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         txtMensagem = new javax.swing.JLabel();
+        txtSenha = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -58,12 +59,6 @@ public class TelaLogin extends javax.swing.JFrame {
         txtEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEmailActionPerformed(evt);
-            }
-        });
-
-        txtSenha.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSenhaActionPerformed(evt);
             }
         });
 
@@ -86,6 +81,12 @@ public class TelaLogin extends javax.swing.JFrame {
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Logo_Nome 1.png"))); // NOI18N
 
+        txtSenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSenhaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -105,14 +106,14 @@ public class TelaLogin extends javax.swing.JFrame {
                                 .addComponent(jLabel5)
                                 .addGap(137, 137, 137))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
                                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(60, 60, 60)
-                                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtSenha))
                                 .addGap(25, 25, 25))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(50, 50, 50)
@@ -132,9 +133,9 @@ public class TelaLogin extends javax.swing.JFrame {
                         .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
                         .addComponent(jLabel4)
-                        .addGap(4, 4, 4)
+                        .addGap(18, 18, 18)
                         .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(50, 50, 50)
+                        .addGap(36, 36, 36)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(35, 35, 35)
                         .addComponent(txtMensagem, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -155,44 +156,48 @@ public class TelaLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEmailActionPerformed
 
-    private void txtSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSenhaActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
         UsuarioController usuarioController = new UsuarioController();
-        
-        //Logar Usuario
-        String email = txtEmail.getText();
-        String senha = txtSenha.getText();
+
+        // Obter os valores dos campos de texto
+        String email = txtEmail.getText().trim();
+        String senha = txtSenha.getText().trim();
 
         try {
-            if (usuarioController.login(email, senha) != null) {
-                String nome = usuarioController.buscarPorEmail(email);
-                TelaInicial home  = new TelaInicial(nome);
-                home.setVisible(true);
-                this.dispose();
+            // Verificar se os campos estão vazios
+            if (email.isEmpty() || senha.isEmpty()) {
+                txtMensagem.setForeground(Color.RED);
+                txtMensagem.setText("Preencha todos os campos!");
+                return;
+            }
 
+            // Tentar realizar o login
+            Usuario usuario = usuarioController.login(email, senha);
+
+            if (usuario != null) {
+                // Login bem-sucedido
+                String nomeCompleto = usuario.getNomeCompleto(); // Obtém o nome completo do usuário
+                TelaInicial home = new TelaInicial(nomeCompleto); // Passa o nome completo para a próxima tela
+                home.setVisible(true);
+                this.dispose(); // Fecha a tela de login
             } else {
+                // Credenciais inválidas
                 txtMensagem.setForeground(Color.RED);
                 txtMensagem.setText("Usuário ou senha incorretos!");
             }
-            
-            if (email.isEmpty() || senha.isEmpty()) {
-                txtMensagem.setText("Preencha os campos!");
-            } else if (email.isBlank() || senha.isBlank()) {
-                // Nota: isEmpty() já cobre isBlank() para a maioria dos casos práticos
-                // onde campos não devem ser apenas espaços. Mas manter ambos não prejudica.
-                txtMensagem.setText("Campos em branco. Preencha por favor!");
-            }
-            
         } catch (SQLException ex) {
             Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
+            txtMensagem.setForeground(Color.RED);
+            txtMensagem.setText("Erro ao conectar ao banco de dados.");
+        }
 
-        } 
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txtSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSenhaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -239,6 +244,6 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JLabel txtMensagem;
-    private javax.swing.JTextField txtSenha;
+    private javax.swing.JPasswordField txtSenha;
     // End of variables declaration//GEN-END:variables
 }
