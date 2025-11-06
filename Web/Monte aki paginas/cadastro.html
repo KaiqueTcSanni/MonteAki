@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monteaki - Criar Conta</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="top-bar">
+    <div class="logo">MONTE <strong>AKI</strong></div>
+    <nav>
+      <ul>
+        <li>Montagem</li>
+        <li>PC Gamer</li>
+        <li>Escritório</li>
+        <li>Hardware</li>
+        <li>Periféricos</li>
+        <li>Frete Grátis</li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="main-cadastro">
+    <h1>CRIAR CONTA</h1>
+    <form class="formulario">
+      <div class="form-row">
+        <input type="text" placeholder="Nome completo *" required>
+        <input type="text" placeholder="CPF" required>
+      </div>
+      <div class="form-row">
+        <input type="text" placeholder="Gênero **">
+        <input type="text" placeholder="Data de nascimento *" name="outra_data" id="outra_data" maxlength="10" onkeypress="mascaraData( this, event )" required>
+      </div>
+      <div class="form-row">
+        <input type="tel" placeholder="Telefone celular *" required>
+        <input type="email" placeholder="Email *" required>
+      </div>
+      <div class="form-row">
+        <input type="password" placeholder="Crie sua senha *" required>
+        <input type="password" placeholder="Confirme sua senha *" required>
+      </div>
+
+      <div class="info-text">
+        <p>(*) Campos obrigatórios</p>
+        <p>(**) As opções “homem” e “mulher” abrangem cisgêneros e transgêneros. A opção “outros” inclui gênero fluido, não-binário, queer, intersexo e outras identidades de gênero.</p>
+      </div>
+
+      <div class="checkbox-group">
+        <label><input type="checkbox"> Quero receber ofertas e novidades por e-mail, SMS, WhatsApp ou mensagens</label>
+        <label><input type="checkbox" required> Li e estou de acordo com as <a href="#">políticas da empresa e políticas de privacidade.</a></label>
+      </div>
+
+      <button type="submit">CADASTRAR</button>
+      <p class="login-link">Já possui cadastro? <a href="login.html">ENTRE</a></p>
+    </form>
+  </div>
+
+  <div class="footer">
+    <a href="#">Políticas do Site e Marketplace</a>
+    <a href="#">Políticas de Privacidade</a>
+    <a href="#">Exerça seus Direitos de Privacidade</a>
+  </div>
+</body>
+<script>
+
+function mascaraData(val) {
+  var pass = val.value;
+  var expr = /[0123456789]/;
+
+  for (i = 0; i < pass.length; i++) {
+    // charAt -> retorna o caractere posicionado no índice especificado
+    var lchar = val.value.charAt(i);
+    var nchar = val.value.charAt(i + 1);
+
+    if (i == 0) {
+      // search -> retorna um valor inteiro, indicando a posição do inicio da primeira
+      // ocorrência de expReg dentro de instStr. Se nenhuma ocorrencia for encontrada o método retornara -1
+      // instStr.search(expReg);
+      if ((lchar.search(expr) != 0) || (lchar > 3)) {
+        val.value = "";
+      }
+
+    } else if (i == 1) {
+
+      if (lchar.search(expr) != 0) {
+        // substring(indice1,indice2)
+        // indice1, indice2 -> será usado para delimitar a string
+        var tst1 = val.value.substring(0, (i));
+        val.value = tst1;
+        continue;
+      }
+
+      if ((nchar != '/') && (nchar != '')) {
+        var tst1 = val.value.substring(0, (i) + 1);
+
+        if (nchar.search(expr) != 0)
+          var tst2 = val.value.substring(i + 2, pass.length);
+        else
+          var tst2 = val.value.substring(i + 1, pass.length);
+
+        val.value = tst1 + '/' + tst2;
+      }
+
+    } else if (i == 4) {
+
+      if (lchar.search(expr) != 0) {
+        var tst1 = val.value.substring(0, (i));
+        val.value = tst1;
+        continue;
+      }
+
+      if ((nchar != '/') && (nchar != '')) {
+        var tst1 = val.value.substring(0, (i) + 1);
+
+        if (nchar.search(expr) != 0)
+          var tst2 = val.value.substring(i + 2, pass.length);
+        else
+          var tst2 = val.value.substring(i + 1, pass.length);
+
+        val.value = tst1 + '/' + tst2;
+      }
+    }
+
+    if (i >= 6) {
+      if (lchar.search(expr) != 0) {
+        var tst1 = val.value.substring(0, (i));
+        val.value = tst1;
+      }
+    }
+  }
+
+  if (pass.length > 10)
+    val.value = val.value.substring(0, 10);
+  return true;
+}
+
+</script>
+
+</html> 
