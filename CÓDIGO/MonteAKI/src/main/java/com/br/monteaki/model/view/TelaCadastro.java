@@ -37,6 +37,10 @@ public class TelaCadastro extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
+<<<<<<< HEAD
+=======
+        lblMensagem = new javax.swing.JLabel();
+>>>>>>> 5af5902 (Tela Cadastro de Produtos)
         jLabel5 = new javax.swing.JLabel();
         txtNomeCompleto = new javax.swing.JTextField();
         txtEmail = new javax.swing.JTextField();
@@ -45,13 +49,20 @@ public class TelaCadastro extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         txtMensagem = new javax.swing.JLabel();
+<<<<<<< HEAD
         lblMensagem = new javax.swing.JLabel();
+=======
+>>>>>>> 5af5902 (Tela Cadastro de Produtos)
         jLabel7 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         txtSenha = new javax.swing.JPasswordField();
         jLabel2 = new javax.swing.JLabel();
         txtCargo = new javax.swing.JComboBox<>();
         chkStatus = new javax.swing.JCheckBox();
+<<<<<<< HEAD
+=======
+        jButton2 = new javax.swing.JButton();
+>>>>>>> 5af5902 (Tela Cadastro de Produtos)
 
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -61,18 +72,34 @@ public class TelaCadastro extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jList1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+<<<<<<< HEAD
         setBackground(new java.awt.Color(255, 255, 255));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setMaximumSize(new java.awt.Dimension(800, 480));
         setMinimumSize(new java.awt.Dimension(800, 480));
         setResizable(false);
         getContentPane().setLayout(null);
+=======
+        setAlwaysOnTop(true);
+        setBackground(new java.awt.Color(255, 255, 255));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setMinimumSize(new java.awt.Dimension(800, 480));
+        setPreferredSize(new java.awt.Dimension(800, 480));
+        setResizable(false);
+        getContentPane().setLayout(null);
+        getContentPane().add(lblMensagem);
+        lblMensagem.setBounds(30, 400, 250, 30);
+>>>>>>> 5af5902 (Tela Cadastro de Produtos)
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("CADASTRO");
         getContentPane().add(jLabel5);
+<<<<<<< HEAD
         jLabel5.setBounds(80, 0, 128, 32);
+=======
+        jLabel5.setBounds(300, 30, 128, 32);
+>>>>>>> 5af5902 (Tela Cadastro de Produtos)
 
         txtNomeCompleto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,7 +107,11 @@ public class TelaCadastro extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtNomeCompleto);
+<<<<<<< HEAD
         txtNomeCompleto.setBounds(20, 70, 270, 30);
+=======
+        txtNomeCompleto.setBounds(30, 90, 270, 30);
+>>>>>>> 5af5902 (Tela Cadastro de Produtos)
 
         txtEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,7 +119,11 @@ public class TelaCadastro extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtEmail);
+<<<<<<< HEAD
         txtEmail.setBounds(20, 130, 270, 30);
+=======
+        txtEmail.setBounds(30, 150, 270, 30);
+>>>>>>> 5af5902 (Tela Cadastro de Produtos)
 
         jButton1.setBackground(new java.awt.Color(106, 13, 173));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -101,6 +136,7 @@ public class TelaCadastro extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
+<<<<<<< HEAD
         jButton1.setBounds(30, 380, 140, 40);
 
         jLabel1.setText("Nome Completo");
@@ -118,6 +154,23 @@ public class TelaCadastro extends javax.swing.JFrame {
         txtMensagem.setBounds(460, 380, 290, 70);
         getContentPane().add(lblMensagem);
         lblMensagem.setBounds(460, 320, 250, 70);
+=======
+        jButton1.setBounds(30, 350, 120, 40);
+
+        jLabel1.setText("Nome Completo");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(30, 70, 200, 16);
+
+        jLabel3.setText("Email");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(30, 130, 200, 16);
+
+        jLabel4.setText("Senha");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(30, 190, 200, 16);
+        getContentPane().add(txtMensagem);
+        txtMensagem.setBounds(20, 350, 290, 70);
+>>>>>>> 5af5902 (Tela Cadastro de Produtos)
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Logo_do_Kaique 1.png"))); // NOI18N
         getContentPane().add(jLabel7);
@@ -133,6 +186,7 @@ public class TelaCadastro extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtSenha);
+<<<<<<< HEAD
         txtSenha.setBounds(20, 200, 270, 30);
 
         jLabel2.setText("Cargo");
@@ -142,6 +196,17 @@ public class TelaCadastro extends javax.swing.JFrame {
         txtCargo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Usuario" }));
         getContentPane().add(txtCargo);
         txtCargo.setBounds(20, 260, 150, 30);
+=======
+        txtSenha.setBounds(30, 210, 270, 30);
+
+        jLabel2.setText("Cargo");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(30, 250, 37, 16);
+
+        txtCargo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Usuario" }));
+        getContentPane().add(txtCargo);
+        txtCargo.setBounds(30, 270, 150, 30);
+>>>>>>> 5af5902 (Tela Cadastro de Produtos)
 
         chkStatus.setText("Status Funcionario");
         chkStatus.addActionListener(new java.awt.event.ActionListener() {
@@ -150,7 +215,23 @@ public class TelaCadastro extends javax.swing.JFrame {
             }
         });
         getContentPane().add(chkStatus);
+<<<<<<< HEAD
         chkStatus.setBounds(20, 310, 140, 20);
+=======
+        chkStatus.setBounds(30, 310, 140, 20);
+
+        jButton2.setBackground(new java.awt.Color(106, 13, 173));
+        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setText("Logar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2);
+        jButton2.setBounds(170, 350, 120, 40);
+>>>>>>> 5af5902 (Tela Cadastro de Produtos)
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -171,16 +252,27 @@ public class TelaCadastro extends javax.swing.JFrame {
         String nomeCompleto = txtNomeCompleto.getText().trim();
         String email = txtEmail.getText().trim();
         String senha = txtSenha.getText().trim();
+<<<<<<< HEAD
         boolean statusUsuario = chkStatus.isSelected(); // Checkbox para indicar se o funcionário está ativo
 
         // Obter o cargo selecionado no JComboBox
         String cargo = txtCargo.getSelectedItem().toString();
+=======
+   
+
+        // Obter o cargo selecionado no JComboBox
+        
+>>>>>>> 5af5902 (Tela Cadastro de Produtos)
 
         // Definir a data de ingresso como a data atual do sistema
         LocalDate dataIngresso = LocalDate.now();
 
         // Validar os campos obrigatórios
+<<<<<<< HEAD
         if (nomeCompleto.isEmpty() || cargo.isEmpty() || email.isEmpty() || senha.isEmpty()) {
+=======
+        if (nomeCompleto.isEmpty() || email.isEmpty() || senha.isEmpty()) {
+>>>>>>> 5af5902 (Tela Cadastro de Produtos)
             lblMensagem.setForeground(Color.RED);
             lblMensagem.setText("Preencha todos os campos obrigatórios!");
             return;
@@ -204,10 +296,15 @@ public class TelaCadastro extends javax.swing.JFrame {
             // Criar um objeto Usuario e preencher os dados
             Usuario usuario = new Usuario();
             usuario.setNomeCompleto(nomeCompleto);
+<<<<<<< HEAD
             usuario.setCargo(cargo);
             usuario.setEmail(email);
             usuario.setSenha(senha); // Lembre-se de hashear a senha em produção!
             usuario.setStatusUsuario(statusUsuario);
+=======
+            usuario.setEmail(email);
+            usuario.setSenha(senha); // Lembre-se de hashear a senha em produção!
+>>>>>>> 5af5902 (Tela Cadastro de Produtos)
             usuario.setDataIngresso(dataIngresso);
 
             // Tentar cadastrar o usuário
@@ -239,6 +336,16 @@ public class TelaCadastro extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_chkStatusActionPerformed
 
+<<<<<<< HEAD
+=======
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        TelaLogin login = new TelaLogin();
+         login.setVisible(true);
+                this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+>>>>>>> 5af5902 (Tela Cadastro de Produtos)
     /**
      * @param args the command line arguments
      */
@@ -278,6 +385,10 @@ public class TelaCadastro extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox chkStatus;
     private javax.swing.JButton jButton1;
+<<<<<<< HEAD
+=======
+    private javax.swing.JButton jButton2;
+>>>>>>> 5af5902 (Tela Cadastro de Produtos)
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
